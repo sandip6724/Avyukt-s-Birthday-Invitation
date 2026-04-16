@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avyukt Turns ONE!</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #fff1f8, #fff9dd);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Balloons */
+.balloon {
+  position: fixed;
+  bottom: -150px;
+  width: 60px;
+  height: 80px;
+  border-radius: 50%;
+  animation: floatUp 9s infinite ease-in;
+  z-index: 0;
+}
+.balloon::after {
+  content: '';
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  width: 2px;
+  height: 25px;
+  background: #555;
+}
+@keyframes floatUp {
+  to { transform: translateY(-130vh); }
+}
+.b1 { left: 10%; background:#ff6f61; }
+.b2 { left: 30%; background:#ffd54f; animation-delay:2s; }
+.b3 { left: 50%; background:#81d4fa; animation-delay:4s; }
+.b4 { left: 70%; background:#ce93d8; animation-delay:1s; }
+.b5 { left: 90%; background:#aed581; animation-delay:3s; }
+
+/* Confetti */
+.confetti {
+  position: fixed;
+  top: -20px;
+  width: 8px;
+  height: 14px;
+  animation: fall linear infinite;
+}
+@keyframes fall {
+  to { transform: translateY(120vh) rotate(360deg); }
+}
+
+/* Card */
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  position: relative;
+  z-index: 2;
+}
+
+h1 {
+  text-align: center;
+  color: #ff6f61;
+  font-size: 2.4rem;
+}
+h2, h3 {
+  text-align: center;
+}
+
+/* Images */
+.hero img {
+  width: 100%;
+  max-width: 360px;
+  margin: 20px auto;
+  display: block;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 15px;
+  margin-top: 25px;
+}
+.gallery img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+ul li {
+  background: #fff3e0;
+  padding: 14px;
+  border-radius: 12px;
+  margin: 10px 0;
+}
+
+.map {
+  text-align: center;
+  margin-top: 18px;
+}
+.map a {
+  background:#ff6f61;
+  color:white;
+  padding:12px 24px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+}
+
+/* Print */
+@media print {
+  body { background:white; }
+  .balloon, .confetti { display:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Balloons -->
+<div class="balloon b1"></div>
+<div class="balloon b2"></div>
+<div class="balloon b3"></div>
+<div class="balloon b4"></div>
+<div class="balloon b5"></div>
+
+<!-- Confetti -->
+<script>
+for(let i=0;i<40;i++){
+  let c=document.createElement("div");
+  c.className="confetti";
+  c.style.left=Math.random()*100+"vw";
+  c.style.background=`hsl(${Math.random()*360},100%,70%)`;
+  c.style.animationDuration=(2+Math.random()*3)+"s";
+  document.body.appendChild(c);
+}
+</script>
+
+<div class="container">
+  <h1>🎉 Avyukt Turns ONE! 🎉</h1>
+  <h2>Wednesday • 29th April 2026</h2>
+
+<style>
+.hero-wrap{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:nowrap;margin:20px 0;}
+.side-cake{font-size:64px;animation:bounce 1.8s infinite;filter:drop-shadow(0 6px 10px rgba(0,0,0,.15));}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.hero img{width:100%;max-width:360px;margin:0;display:block;border-radius:18px;box-shadow:0 10px 25px rgba(0,0,0,0.2)}
+</style>
+
+<div class="hero-wrap">
+  <div class="side-cake">🎂</div>
+  <div class="hero">
+    <img src="https://github.com/sandip6724/csv_file/blob/main/photo2.jpeg?raw=true" alt="Avyukt Birthday Photo 1">
+  </div>
+  <div class="side-cake">🎂</div>
+</div>
+
+  <ul>
+    <li>🎈 Join us in celebrating Avyukt’s 1st Birthday</li>
+    <li>🕕 Time: 6:00 PM onwards</li>
+    <li>🙏 Awaiting your gracious presence — Pradhan Family</li>
+    <li>📍 Silpa Palli, Near Shani Mandir, Ganjam, Odisha</li>
+  </ul>
+
+
+  <div class="map">
+    <a href="https://maps.app.goo.gl/PEQ3VcnYPYMdpf3m9" target="_blank">
+      📍 View Location on Google Maps
+    </a>
+  </div>
+</div>
+<!-- Music Player -->
+<div id="musicBtn" onclick="toggleMusic()" style="
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 999;
+  background: #ff6f61;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+">🎵</div>
+<audio id="bgMusic" autoplay loop muted>
+  <source src="https://github.com/sandip6724/csv_file/raw/main/Happy%20Birthday%20Instrumental%20_%20Flute.mp3" type="audio/mpeg">
+</audio>
+<script>
+const music=document.getElementById('bgMusic');
+const btn=document.getElementById('musicBtn');
+let playing=false;
+window.addEventListener('load',()=>{music.play().then(()=>{music.muted=false;playing=true;if(btn)btn.textContent='🔇';}).catch(()=>{});});
+function toggleMusic(){if(playing){music.pause();btn.textContent='🎵';playing=false;}else{music.muted=false;music.play();btn.textContent='🔇';playing=true;}}
+document.body.addEventListener('click',()=>{if(!playing){music.muted=false;music.play();playing=true;if(btn)btn.textContent='🔇';}},{once:true});
+</script>
+
+</body>
+</html>
+
